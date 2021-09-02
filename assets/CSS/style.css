@@ -4,10 +4,10 @@
   box-sizing: border-box;
 }
 
-h3 {
+/*h3 {
   position: relative;
   top: 1.5em;
-}
+}*/
 
 /* HERO START */
 .hero {
@@ -33,7 +33,9 @@ h3 {
 /* FLIGHT CONTAINER STYLES */
 .search-input {
   border: 2px solid blue;
-  margin-top: 6.25em;
+  /*margin-top: 6.25em;*/
+  margin-top: 2em;
+  padding: 0.5em;
 }
 
 .search-results {
@@ -46,7 +48,7 @@ h3 {
 /* WEATHER CONTAINER STYLES */
 .weather-results {
   padding: 6.25em;
-  margin-top: 5em;
+  margin-top: 1.5em;
   border: 2px solid blue;
 }
 
@@ -55,3 +57,15 @@ h3 {
   margin: 0.5em;
 }
 /* WEATHER CONTAINER STYLES END */
+
+/* TITLE FOR EACH SECTION START*/
+.center {
+  padding-top: 10px;
+}
+/* TITLE FOR EACH SECTION END */
+
+/* POSITIONING ICON START */
+i {
+  padding-left: 15px;
+}
+/* POSITIONING ICON END */
