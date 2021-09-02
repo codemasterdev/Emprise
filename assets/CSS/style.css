@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
+.hero {
+    height: 800px;
+    width: 100%;
+    margin-bottom: 25px;
+    background-image: url("../imgs/hero.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
 /* .flight-search-container {
      border: 2px solid red;
 } */
