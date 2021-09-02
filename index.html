@@ -1,15 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/CSS/style.css">
     <title>Document</title>
-</head>
-<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    
-<script src="./assets/JS/script.js"></script>
+</head>
+
+<body>
+    <!-- NAV BAR-->
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">Brand Name</a>
+        </div>
+    </nav>
+
+    <!-- NAV BAR END -->
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <span class="hero-text">"Fly Freely"</span>
+    </section>
+    <!-- HERO SECTION END -->
+
+    <!-- FLIGHT SEARCH -->
+
+    <h3 class=center> Flight Search</h2>
+
+        <section class="container flight-search-container">
+
+            <!-- FLIGHT SEARCH INPUT -->
+            <div class="search-input">
+                <div class="row">
+
+                    <!-- TRIP OPTIONS -->
+
+                    <form action="#">
+                        <!-- ONE WAY-->
+                        <label>
+                            <input aria-label="radio-button" name="group1" type="radio" checked />
+                            <span>One Way</span>
+                        </label>
+
+                        <!-- ROUND TRIP -->
+                        <label>
+                            <input aria-label="radio-button" name="group1" type="radio" />
+                            <span>Round Trip</span>
+                        </label>
+
+                    </form>
+                    <!-- TRIP OPTIONS END -->
+
+                    <!-- FROM -->
+
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                <label for="textarea1">From</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- TO -->
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                <label for="textarea2">To</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- CALENDER DATES -->
+
+                <div class="row">
+                    <!-- ONE WAY-->
+                    <div class="col s6 input-field">
+                        <input id="input_1" type="text" class="datepicker" />
+                        <label for="input_1">dd/mm/yyyy</label>
+                    </div>
+
+                    <!-- ROUND TRIP -->
+                    <!-- <div class="col s6 input-field">
+                        <input id="input_2" type="text" class="datepicker" />
+                        <label for="input_2">dd/mm/yyyy</label>
+                    </div> -->
+                </div>
+
+                <!-- CALENDER DATES END -->
+
+                <!-- SEARCH BUTTON -->
+                <a class="waves-effect waves-light btn">Search</a>
+            </div>
+
+            <!-- FLIGHT SEARCH RESULTS -->
+            <div class="search-results">
+                results
+            </div>
+
+        </section>
+
+        <!-- FLIGHT SEARCH END -->
+
+        <!-- WEATHER -->
+
+        <h3 class="center">Five Day Weather</h2>
+
+            <section class="container weather-container">
+                <div class="weather-results row">
+                    <div class="col s2 weather-item">Day 1</div>
+                    <div class="col s2 weather-item">Day 2</div>
+                    <div class="col s2 weather-item">Day 3</div>
+                    <div class="col s2 weather-item">Day 4</div>
+                    <div class="col s2 weather-item">Day 5</div>
+                </div>
+            </section>
+
+            <!-- WEATHER END-->
+
+
+            <footer class="page-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col l6 s12">
+                            <h5 class="white-text">Footer</h5>
+                            <p class="grey-text text-lighten-4"></p>
+                        </div>
+                        <div class="col l4 offset-l2 s12">
+                            <h5 class="white-text">Links</h5>
+                            <ul>
+                                <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                                <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                                <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                                <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-copyright">
+                    <div class="container">
+                        © 2021 Brand Name, Inc
+                    </div>
+                </div>
+            </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <script src="./assets/JS/script.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
+
 </html>

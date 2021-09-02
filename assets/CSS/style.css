@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h3 {
+    
+    position: relative;
+    top: 1.5em;
+}
+
+/* HERO START */
+.hero {
+    height: 800px;
+    width: 100%;
+    margin-bottom: 25px;
+    background-image: url("../imgs/hero.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-text {
+    position: relative;
+    /* font-size: 4em; */
+    margin-left: 7em; 
+    padding-bottom: 9em;
+    font-size: clamp(16px, 5vw, 4em);
+}
+/* HERO END */
+
+/* FLIGHT CONTAINER STYLES */
+.search-input {
+    border: 2px solid blue; 
+    margin-top: 6.25em;
+    
+}
+
+.search-results {
+    border: 2px solid blue;
+    padding: 6.25em;
+    margin-top: 1.5em;
+}
+/* FLIGHT CONTAINTER STYLES END */
+
+/* WEATHER CONTAINER STYLES */
+.weather-results {
+    padding: 6.25em;
+    margin-top: 5em;
+    border: 2px solid blue;
+}
+
+.weather-item {
+    border: 1px solid red;
+    margin: .5em;
+}
+/* WEATHER CONTAINER STYLES END */
+
