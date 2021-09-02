@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+/* HERO START */
 .hero {
     height: 800px;
     width: 100%;
@@ -12,12 +13,9 @@
     background-size: cover;
     background-position: center;
 }
+/* HERO END */
 
-/* .flight-search-container {
-     border: 2px solid red;
-} */
-
-
+/* FLIGHT CONTAINER STYLES */
 .search-input {
     border: 2px solid blue; 
     margin-top: 6.25em;
@@ -26,11 +24,12 @@
 
 .search-results {
     border: 2px solid blue;
- padding: 6.25em;
+    padding: 6.25em;
     margin-top: 1.5em;
-
 }
+/* FLIGHT CONTAINTER STYLES END */
 
+/* WEATHER CONTAINER STYLES */
 .weather-results {
     padding: 6.25em;
     margin-top: 5em;
@@ -41,3 +40,4 @@
     border: 1px solid red;
     margin: .5em;
 }
+/* WEATHER CONTAINER STYLES END */
