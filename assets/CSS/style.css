@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+h3 {
+    
+    position: relative;
+    top: 1.5em;
+}
+
 /* HERO START */
 .hero {
     height: 800px;
@@ -41,3 +47,4 @@
     margin: .5em;
 }
 /* WEATHER CONTAINER STYLES END */
+
