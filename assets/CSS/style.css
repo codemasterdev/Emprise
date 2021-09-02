@@ -19,6 +19,14 @@ h3 {
     background-size: cover;
     background-position: center;
 }
+
+.hero-text {
+    position: relative;
+    /* font-size: 4em; */
+    margin-left: 7em; 
+    padding-bottom: 9em;
+    font-size: clamp(16px, 5vw, 4em);
+}
 /* HERO END */
 
 /* FLIGHT CONTAINER STYLES */
