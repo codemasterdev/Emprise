@@ -16,6 +16,7 @@ fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices
 
 function skyscannerAPI(from, to, date) {
     let date1 = moment(date).format("YYYY-MM-DD");
+    
     let dateFormat = moment(date).format('MMM DD, YYYY');
 
     fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/" + from + "-sky/" + to + "-sky/" + date1, {
@@ -52,7 +53,6 @@ function skyscannerAPI(from, to, date) {
                 </tr>
                 `
                         $(".flight").append(row2); //appends flight available to the table.
-                        $(".loadingBar1").hide(); //hides the loading bar after search complete
 
                     }
 
