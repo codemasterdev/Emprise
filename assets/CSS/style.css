@@ -17,7 +17,7 @@
 
 .search-results {
     border: 2px solid blue;
-    padding: 6.25em;
+ padding: 6.25em;
     margin-top: 1.5em;
 
 }
@@ -26,4 +26,9 @@
     padding: 6.25em;
     margin-top: 5em;
     border: 2px solid blue;
+}
+
+.weather-item {
+    border: 1px solid red;
+    margin: 1em;
 }
