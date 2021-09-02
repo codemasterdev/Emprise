@@ -20,7 +20,7 @@ function skyscannerAPI(from, to, date) {
     // let to = document.querySelector('#departure-input');
     let dateFormat = moment(date).format('MMM DD, YYYY');
 
-    fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/" + from + "-sky/" + to + "-sky/" + date1, {
+    fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/" + des + "-sky/" + to + "-sky/" + date1, {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
@@ -40,7 +40,6 @@ function skyscannerAPI(from, to, date) {
             </tr>
             `
                 $(".flight").append(row2);
-                $(".loadingBar1").hide();
             } else {
                 for (i = 0; i < response.Carriers.length; i++) {
                     if (response.Quotes[0].OutboundLeg.CarrierIds[0] == response.Carriers[i].CarrierId) {
