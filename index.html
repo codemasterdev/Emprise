@@ -61,9 +61,10 @@
                     <form class="col s12">
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                <label for="textarea1">From</label>
+                                <input type="text" id="origin-input" class="autocomplete" required minlength="2"
+                                    placeholder="Origin - US Cities Only">
                             </div>
+
                         </div>
                     </form>
                 </div>
@@ -73,38 +74,56 @@
                     <form class="col s12">
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                <label for="textarea2">To</label>
+                                <input type="text" id="destination-input" class="autocomplete" required minlength="2"
+                                    placeholder="Destination - US Cities Only">
                             </div>
                         </div>
-                    </form>
+                </div>
+                </form>
+            </div>
+
+            <!-- CALENDER DATES -->
+
+            <div class="row">
+                <!-- ONE WAY-->
+                <div class="col s6 input-field">
+                    <input id="input_1" type="text" class="datepicker" />
+                    <label for="input_1">Start date:</label>
                 </div>
 
-                <!-- CALENDER DATES -->
-
-                <div class="row">
-                    <!-- ONE WAY-->
-                    <div class="col s6 input-field">
-                        <input id="input_1" type="text" class="datepicker" />
-                        <label for="input_1">Start date:</label>
-                    </div>
-
-                    <!-- ROUND TRIP -->
-                    <div class="col s6 input-field">
-                        <input id="input_1" type="text" class="datepicker" />
-                        <label for="input_1">End date:</label>
-                    </div>
+                <!-- ROUND TRIP -->
+                <div class="col s6 input-field">
+                    <input id="input_1" type="text" class="datepicker" />
+                    <label for="input_1">End date:</label>
                 </div>
+            </div>
 
-                <!-- CALENDER DATES END -->
+            <!-- CALENDER DATES END -->
 
-                <!-- SEARCH BUTTON -->
-                <a class="waves-effect waves-light btn">Search</a>
+            <!-- SEARCH BUTTON -->
+            <a class="waves-effect waves-light btn">Search</a>
             </div>
 
             <!-- FLIGHT SEARCH RESULTS -->
-            <div class="search-results">
-                results
+            <div class="row">
+                <h4>Flights</h4>
+                <div class="col s12 z-depth-2">
+                    <table class="highlight responsive-table" id="flight-table">
+                        <thead>
+                            <tr class="eventHeading">
+                                <td>From</td>
+                                <td>To</td>
+                                <td>Company</td>
+                                <td>Departure Date</td>
+                                <td>Price ($)</td>
+                            </tr>
+                        </thead>
+
+                        <tbody class="flight">
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
         </section>
