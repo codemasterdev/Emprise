@@ -70,14 +70,16 @@ function skyscannerAPI(from, to, date) {
 }
 
 $(document).ready(function () {
+  $("#start-date").datepicker({format: 'm-d-yyyy'});
+  $("#end-date").datepicker({format: 'm-d-yyyy'});
 
     $("#submit").on("click", function () {
-        var destination = $("#destination-input").val().trim();
         var origin = $("#origin-input").val().trim();
+        var destination = $("#destination-input").val().trim();
         var startDate = $("#start-date").val().trim();
         var endDate = $("#end-date").val().trim();
         $(".flight").empty();
-
+        
         skyscannerAPI(cityToAirport[origin], cityToAirport[destination], startDate); //calling flight API for orgin to destination flight.
         skyscannerAPI(cityToAirport[destination], cityToAirport[origin], endDate); //calling flight API for return flight from destination to origin.
     });
