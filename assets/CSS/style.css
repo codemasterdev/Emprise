@@ -4,15 +4,8 @@
   box-sizing: border-box;
 }
 
-/*h3 {
-  position: relative;
-  top: 1.5em;
-}*/
-
 /* HERO START */
 .hero {
-  /*height: 800px;
-  width: 100%;*/
   height: 400px;
   width: auto;
   margin-bottom: 25px;
@@ -23,7 +16,6 @@
 
 .hero-text {
   position: relative;
-  /* font-size: 4em; */
   margin-left: 7em;
   padding-bottom: 9em;
   font-size: clamp(16px, 5vw, 4em);
@@ -33,7 +25,6 @@
 /* FLIGHT CONTAINER STYLES */
 .search-input {
   border: 2px solid blue;
-  /*margin-top: 6.25em;*/
   margin-top: 2em;
   padding: 0.5em;
 }

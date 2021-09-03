@@ -27,11 +27,9 @@
 
     <!-- NAV BAR END -->
 
-    <!-- HERO SECTION -->
     <section class="hero">
       <span class="hero-text">"Fly Freely"</span>
     </section>
-    <!-- HERO SECTION END -->
 
     <!-- FLIGHT SEARCH -->
 
@@ -65,13 +63,18 @@
           </form>
         </div>
 
-        <!-- TRIP OPTIONS END -->
+        <!-- FLIGHT SEARCH SECTION START -->
         <div class="row"></div>
-
         <div class="row">
           <div class="input-field col s5">
-            <textarea id="textarea1" class="materialize-textarea"></textarea>
-            <label for="textarea1">From?</label>
+            <input
+              type="text"
+              id="origin-input"
+              class="autocomplete"
+              required
+              minlength="2"
+              placeholder="Origin - US Cities Only"
+            />
           </div>
           <div class="col s2" id="swap-btn">
             <a class="waves-effect waves-light btn-large"
@@ -79,8 +82,14 @@
             >
           </div>
           <div class="input-field col s5">
-            <textarea id="textarea1" class="materialize-textarea"></textarea>
-            <label for="textarea1">To?</label>
+            <input
+              type="text"
+              id="destination-input"
+              class="autocomplete"
+              required
+              minlength="2"
+              placeholder="Destination - US Cities Only"
+            />
           </div>
         </div>
 
@@ -88,34 +97,15 @@
         <div class="row">
           <!-- ONE WAY-->
           <div class="col s6 input-field">
-            <input id="input_1" type="text" class="datepicker" />
-            <label for="input_1">Departure date:</label>
+            <input id="start-date" type="text" class="datepicker" />
+            <label for="input_1">Start date:</label>
           </div>
           <!-- ROUND TRIP -->
           <div class="col s6 input-field">
-            <input id="input_1" type="text" class="datepicker" />
-            <label for="input_1">Return date:</label>
+            <input id="end-date" type="text" class="datepicker" />
+            <label for="input_1">End date:</label>
           </div>
         </div>
-        <!-- CALENDER DATES END -->
-
-        <!-- NUMBER OF PASSANGERS START -->
-        <div class="row">
-          <div class="input-field col s12">
-            <select class="browser-default">
-              <option value="" disabled selected>Number of Passangers</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-            </select>
-          </div>
-        </div>
-        <!-- NUMBER OF PASSANGERS END -->
 
         <!-- SEARCH BUTTON START-->
         <div class="row">
@@ -125,17 +115,30 @@
           </div>
           <div class="col s5"></div>
         </div>
-        <!-- SEARCH BUTTON END -->
       </div>
 
       <!-- FLIGHT SEARCH RESULTS -->
-      <div class="search-results">results</div>
+      <div class="row">
+        <h3 class="center">Flights</h3>
+        <div class="col s12 z-depth-2">
+          <table class="highlight responsive-table" id="flight-table">
+            <thead>
+              <tr class="eventHeading">
+                <td>From</td>
+                <td>To</td>
+                <td>Company</td>
+                <td>Departure Date</td>
+                <td>Price ($)</td>
+              </tr>
+            </thead>
+
+            <tbody class="flight"></tbody>
+          </table>
+        </div>
+      </div>
     </section>
 
-    <!-- FLIGHT SEARCH END -->
-
     <!-- WEATHER -->
-
     <h3 class="center">Five Day Weather</h3>
 
     <section class="container weather-container">
@@ -173,8 +176,9 @@
       </div>
     </footer>
 
-    <script src="./assets/JS/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/JS/script.js"></script>
   </body>
 </html>
