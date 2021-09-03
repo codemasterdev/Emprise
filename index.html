@@ -39,42 +39,48 @@
 
     <section class="container flight-search-container">
       <div class="search-input">
+        <div class="row"></div>
+
+        <!-- TRIP OPTIONS -->
         <div class="row">
-          <!-- TRIP OPTIONS -->
           <form action="#">
-            <!-- ONE WAY-->
-            <label>
-              <input
-                aria-label="radio-button"
-                name="group1"
-                type="radio"
-                checked
-              />
-              <span>Round Trip</span>
-            </label>
+            <div class="col s2">
+              <label>
+                <input
+                  aria-label="radio-button"
+                  name="group1"
+                  type="radio"
+                  checked
+                />
+                <span>One Way</span>
+              </label>
+            </div>
 
-            <!-- ROUND TRIP -->
-            <label>
-              <input aria-label="radio-button" name="group1" type="radio" />
-              <span>One Way</span>
-            </label>
+            <div class="col s2">
+              <label>
+                <input aria-label="radio-button" name="group1" type="radio" />
+                <span>Round Trip</span>
+              </label>
+            </div>
           </form>
-          <!-- TRIP OPTIONS END -->
+        </div>
 
-          <div class="row">
-            <div class="input-field col s5">
-              <textarea id="textarea1" class="materialize-textarea"></textarea>
-              <label for="textarea1">From?</label>
-            </div>
-            <div class="col s2" id="swap-btn">
-              <a class="waves-effect waves-light btn-large"
-                ><i class="small material-icons">swap_horiz</i></a
-              >
-            </div>
-            <div class="input-field col s5">
-              <textarea id="textarea1" class="materialize-textarea"></textarea>
-              <label for="textarea1">To?</label>
-            </div>
+        <!-- TRIP OPTIONS END -->
+        <div class="row"></div>
+
+        <div class="row">
+          <div class="input-field col s5">
+            <textarea id="textarea1" class="materialize-textarea"></textarea>
+            <label for="textarea1">From?</label>
+          </div>
+          <div class="col s2" id="swap-btn">
+            <a class="waves-effect waves-light btn-large"
+              ><i class="small material-icons">swap_horiz</i></a
+            >
+          </div>
+          <div class="input-field col s5">
+            <textarea id="textarea1" class="materialize-textarea"></textarea>
+            <label for="textarea1">To?</label>
           </div>
         </div>
 
@@ -85,7 +91,6 @@
             <input id="input_1" type="text" class="datepicker" />
             <label for="input_1">Departure date:</label>
           </div>
-
           <!-- ROUND TRIP -->
           <div class="col s6 input-field">
             <input id="input_1" type="text" class="datepicker" />
@@ -121,37 +126,6 @@
           <div class="col s5"></div>
         </div>
         <!-- SEARCH BUTTON END -->
-
-        <!-- FROM -->
-        <!--  <form class="col s12">
-            <div class="row">
-              <div class="input-field col s12">
-                <textarea
-                  id="textarea1"
-                  class="materialize-textarea"
-                ></textarea>
-                <label for="textarea1">From</label>
-              </div>
-            </div>
-          </form> -->
-
-        <!-- TO -->
-        <!-- <div class="row">
-          <form class="col s12">
-            <div class="row">
-              <div class="input-field col s12">
-                <textarea
-                  id="textarea1"
-                  class="materialize-textarea"
-                ></textarea>
-                <label for="textarea2">To</label>
-              </div>
-            </div>
-          </form>
-        </div> -->
-
-        <!-- SEARCH BUTTON -->
-        <!-- <a class="waves-effect waves-light btn">Search</a> -->
       </div>
 
       <!-- FLIGHT SEARCH RESULTS -->
