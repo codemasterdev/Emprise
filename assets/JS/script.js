@@ -1,18 +1,22 @@
-//flight api to input location and date to browse results
-// fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-GB/?query=Stockholm", {
-//         "method": "GET",
-//         "headers": {
-//             "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-//             "x-rapidapi-key": "1bde5c88fbmshc3edab4f94f2feep1ada8ejsn18b27f31e980"
-//         }
-//     })
-//     .then(response => {
-//         console.log(response);
-//     })
-//     .catch(err => {
-//         console.error(err);
-//     });
-// // API to convert location to Airport for 
+var destination = $("#destination-input").val().trim();
+
+
+
+
+
+fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/?"+ destination, {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+		"x-rapidapi-key": "1bde5c88fbmshc3edab4f94f2feep1ada8ejsn18b27f31e980"
+	}
+})
+.then(response => {
+	console.log(response);
+})
+.catch(err => {
+	console.error(err);
+});
 
 function skyscannerAPI(from, to, date) {
     let date1 = moment(date).format("YYYY-MM-DD");
@@ -29,7 +33,7 @@ function skyscannerAPI(from, to, date) {
         })
         .then(response => {
             console.log(response);
-            if (response.Quotes.length === 0) {
+            if (response.body.Quotes.length === 0) {
                 var row2 = `
             <tr>
             <td>${"No Flights Available From " + from + " To " + to}</td>
@@ -60,26 +64,20 @@ function skyscannerAPI(from, to, date) {
             }
         }).then(function () {
             $("#flight-table").trigger("update"); // sort table by flight departure date
-        })
-    
-
-
-    .catch(err => {
+        }).catch(err => {
         console.error(err);
     })
 }
 
 $(document).ready(function () {
-  $("#start-date").datepicker({format: 'm-d-yyyy'});
-  $("#end-date").datepicker({format: 'm-d-yyyy'});
 
     $("#submit").on("click", function () {
-        var origin = $("#origin-input").val().trim();
         var destination = $("#destination-input").val().trim();
+        var origin = $("#origin-input").val().trim();
         var startDate = $("#start-date").val().trim();
         var endDate = $("#end-date").val().trim();
         $(".flight").empty();
-        
+
         skyscannerAPI(cityToAirport[origin], cityToAirport[destination], startDate); //calling flight API for orgin to destination flight.
         skyscannerAPI(cityToAirport[destination], cityToAirport[origin], endDate); //calling flight API for return flight from destination to origin.
     });
