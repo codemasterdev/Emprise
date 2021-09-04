@@ -12,8 +12,9 @@ function skyscannerCity(cityCode) {
         .then(function (response) {
             return response.json();
         }).then(function (data) {
-            // console.log(data.Places[0].CityId);
-            return (data.Places[0].CityId);
+            console.log(data);
+            console.log(data.Places[0].PlaceId);
+            return(data.Places[0].PlaceId);
 
         })
 
@@ -42,7 +43,7 @@ function skyscannerAPI(from, to, date) {
         }).then(function (data) {
             // console.log(data.Body.Quotes);
 
-            if (data.body.Quotes.length === 0) {
+            if (data.Body.Quotes.length === 0) {
                 var row2 = `
             <tr>
             <td>${"No Flights Available From " + from + " To " + to}</td>
@@ -87,14 +88,14 @@ $(document).ready(function () {
         var endDate = $("#end-date").val().trim();
         $(".flight").empty();
 
-        from = skyscannerCity(origin);
-        console.log(from);
+        let start = skyscannerCity(origin);
+        console.log(start);
 
-        to = skyscannerCity(destination);
-        console.log(to);
+        let end = skyscannerCity(destination);
+        console.log(end);
 
-        skyscannerAPI(from, to, startDate); //calling flight API for orgin to destination flight.
-        skyscannerAPI(to, from, endDate); //calling flight API for return flight from destination to origin.
+        skyscannerAPI(start, end, startDate); //calling flight API for orgin to destination flight.
+        skyscannerAPI(end, start, endDate); //calling flight API for return flight from destination to origin.
     });
 
 });
