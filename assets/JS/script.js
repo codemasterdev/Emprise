@@ -1,4 +1,3 @@
-let cityData;
 
 
 function skyscannerCity(cityCode) {
@@ -14,7 +13,7 @@ function skyscannerCity(cityCode) {
             return response.json();
         }).then(function (data) {
             console.log(data.Places[0].CityId);
-            let cityData = data.Places[0].CityId;
+            return (data.Places[0].CityId);
 
         })
 
@@ -88,12 +87,10 @@ $(document).ready(function () {
         var endDate = $("#end-date").val().trim();
         $(".flight").empty();
 
-        skyscannerCity(origin);
-        let from = cityData;
+        from = skyscannerCity(origin);
         console.log(from);
 
-        skyscannerCity(destination);
-        let to = cityData;
+        to = skyscannerCity(destination);
         console.log(to);
 
         skyscannerAPI(from, to, startDate); //calling flight API for orgin to destination flight.
