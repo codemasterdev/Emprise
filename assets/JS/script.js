@@ -12,7 +12,7 @@ function skyscannerCity(cityCode) {
         .then(function (response) {
             return response.json();
         }).then(function (data) {
-            console.log(data.Places[0].CityId);
+            // console.log(data.Places[0].CityId);
             return (data.Places[0].CityId);
 
         })
@@ -40,9 +40,9 @@ function skyscannerAPI(from, to, date) {
         .then(function (response) {
             return response.json();
         }).then(function (data) {
-            console.log(data.Body.Quotes);
+            // console.log(data.Body.Quotes);
 
-            if (response.body.Quotes.length === 0) {
+            if (data.body.Quotes.length === 0) {
                 var row2 = `
             <tr>
             <td>${"No Flights Available From " + from + " To " + to}</td>
