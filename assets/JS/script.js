@@ -1,3 +1,9 @@
+// for calender pop up 
+$(document).ready(function () {
+    $('.datepicker').datepicker();
+});
+
+
 //flight api to input location and date to browse results
 // fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-GB/?query=Stockholm", {
 //         "method": "GET",
@@ -13,11 +19,6 @@
 //         console.error(err);
 //     });
 // // API to convert location to Airport for 
-
-// for calender pop up 
-$(document).ready(function () {
-    $('.datepicker').datepicker();
-});
 
 
 function skyscannerAPI(from, to, date) {
