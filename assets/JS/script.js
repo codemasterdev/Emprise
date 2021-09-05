@@ -11,7 +11,7 @@ function getWeather(cityName) {
   fetch(apiUrl).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
-        
+        // convert name to coords
         var apiUrlAll =
         "https://api.openweathermap.org/data/2.5/onecall?lat=" +
         data.coord.lat +
@@ -26,6 +26,9 @@ function getWeather(cityName) {
           displayWeather(data);
         });
       });
+    })
+    .catch(err => {
+      console.log(err);
     });
     } else {
       M.toast({html: 'Please enter a valid city'});
@@ -34,6 +37,8 @@ function getWeather(cityName) {
 }
 
 function displayWeather(data) {
+  // clear results
+  $('#weatherResults').empty();
   for (let i = 0; i < 5; i++) {
     var date = new Date(data.daily[i].dt * 1000);
     var month = date.getMonth() +1;
@@ -42,11 +47,24 @@ function displayWeather(data) {
     var fullDate = month + '/' + day + '/' + year;
 
     var displayForecast = document.createElement('div');
+    var displayIcon = document.createElement('img');
+    var displayTemp = document.createElement('h6');
+    var displayWind = document.createElement('h6');
+    var displayHum = document.createElement('h6');
     displayForecast.classList = 'col s2 weather-item';
-    displayForecast.textContent = month + '/' + day + '/' + year;
-
-    // append el
+    displayForecast.textContent = fullDate;
+    displayIcon.src = 'http://openweathermap.org/img/w/' + data.daily[i].weather[0].icon + '.png';
+    displayIcon.alt = data.daily[i].weather[0].main;
+    displayTemp.textContent = 'Temp: ' + data.daily[i].temp.max + '°F';
+    displayWind.textContent = 'Wind: ' + data.daily[i].wind_speed + ' MPH'
+    displayHum.textContent = 'Humidity: ' + data.daily[i].humidity + '%'
+    
+    // append elements
     weatherResults.appendChild(displayForecast);
+    displayForecast.appendChild(displayIcon);
+    displayForecast.appendChild(displayTemp);
+    displayForecast.appendChild(displayWind);
+    displayForecast.appendChild(displayHum);
   }
 }
 
