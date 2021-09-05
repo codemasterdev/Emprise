@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
 /* HERO START */
 .hero {
   height: 400px;
@@ -61,8 +66,9 @@
 
 /* CHOOSE US STYLES */
 
-.choose-us {
-  padding-top: 5rem;
-}
-
 /* CHOOSE US STYLES */
+
+/* REVIEW STYLES */
+
+
+/* REVIEW STYLES END */
