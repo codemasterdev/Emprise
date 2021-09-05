@@ -70,5 +70,9 @@ section {
 
 /* REVIEW STYLES */
 
+.reviews {
+  display: flex;
+}
+
 
 /* REVIEW STYLES END */
