@@ -1,20 +1,24 @@
+// for calender pop up 
+$(document).ready(function () {
+    $('.datepicker').datepicker();
+});
 
 
 function skyscannerCity(cityCode) {
 
     fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/?query=" + cityCode, {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-                "x-rapidapi-key": "1bde5c88fbmshc3edab4f94f2feep1ada8ejsn18b27f31e980"
-            }
-        })
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+            "x-rapidapi-key": "1bde5c88fbmshc3edab4f94f2feep1ada8ejsn18b27f31e980"
+        }
+    })
         .then(function (response) {
             return response.json();
         }).then(function (data) {
             console.log(data);
             console.log(data.Places[0].PlaceId);
-            return(data.Places[0].PlaceId);
+            return (data.Places[0].PlaceId);
 
         })
 
@@ -32,12 +36,12 @@ function skyscannerAPI(from, to, date) {
     let dateFormat = moment(date).format('MMM DD, YYYY');
 
     fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/" + from + "/" + to + "/" + date1, {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-                "x-rapidapi-key": "1bde5c88fbmshc3edab4f94f2feep1ada8ejsn18b27f31e980"
-            }
-        })
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+            "x-rapidapi-key": "1bde5c88fbmshc3edab4f94f2feep1ada8ejsn18b27f31e980"
+        }
+    })
         .then(function (response) {
             return response.json();
         }).then(function (data) {
