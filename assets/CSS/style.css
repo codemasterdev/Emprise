@@ -67,3 +67,7 @@
 #swap-btn {
   padding-left: 35px;
 }
+
+#weatherIcons {
+  display: flex;
+}

@@ -55,6 +55,7 @@ function displayWeather(data) {
     displayForecast.textContent = fullDate;
     displayIcon.src = 'http://openweathermap.org/img/w/' + data.daily[i].weather[0].icon + '.png';
     displayIcon.alt = data.daily[i].weather[0].main;
+    displayIcon.id = 'weatherIcons';
     displayTemp.textContent = 'Temp: ' + data.daily[i].temp.max + '°F';
     displayWind.textContent = 'Wind: ' + data.daily[i].wind_speed + ' MPH'
     displayHum.textContent = 'Humidity: ' + data.daily[i].humidity + '%'
