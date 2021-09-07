@@ -1,6 +1,8 @@
 // for calender pop up
 $(document).ready(function () {
   $(".datepicker").datepicker();
+  $("#flight-table").tablesorter({ sortList: [[3, 0]] }); // allows the flights to be sorted by departure date.
+
 });
 
 //function to get user city input converted to API parameter format
@@ -111,3 +113,7 @@ $(document).ready(function () {
     skyscannerAPI(end, start, endDate); //calling flight API for return flight from destination to origin.
   });
 });
+
+
+
+
