@@ -101,8 +101,13 @@ $(document).ready(function () {
         let end = data2.Places[0].PlaceId;
         console.log(data2);
 
-        await skyscannerAPI(start, end, startDate); //calling flight API for orgin to destination flight.
-        skyscannerAPI(end, start, endDate); //calling flight API for return flight from destination to origin.
+        await skyscannerAPI(start, end, startDate)
+         //calling flight API for orgin to destination flight.
+         if ($("#one-way").is(':checked')) {
+
+         } else{
+        skyscannerAPI(end, start, endDate); 
+         }//calling flight API for return flight from destination to origin.
     });
 });
 $(document).ready(function () {
