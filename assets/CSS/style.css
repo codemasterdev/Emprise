@@ -89,3 +89,6 @@ section {
   margin-top: -20px;
 }
 /* REVIEW STYLES END */
+#weatherIcons {
+  display: flex;
+}
