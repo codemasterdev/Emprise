@@ -88,7 +88,6 @@ section {
 .card-content {
   min-height: 200px;
 }
-
 /* REVIEW STYLES END */
 
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
@@ -98,7 +97,7 @@ section {
   }
 }
 
-/* MEDIA QUERY FOR TABLETS AND SMALLER */
+/* MEDIA QUERY FOR TABLETS AND SMALLER*/
 @media screen and (max-width: 780px) {
   #swap-btn {
     padding-left: 10px;
@@ -106,5 +105,15 @@ section {
 
   .card-content {
     min-height: 300px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  #swap-btn {
+    padding-left: 0px;
+  }
+
+  #submit {
+    margin-left: -25px;
   }
 }
