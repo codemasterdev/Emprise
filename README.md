@@ -64,11 +64,11 @@ Emprise is a browser based flight search app. When you select your origin, desti
 * [JQuery]()
 
 ## Contributors
-Matthew Pandolfo - [Github](https://github.com/PandolfoM)
-Xueting Hu(Ting) [Github](https://github.com/ting-hu)
-Devon Webster [Github](https://github.com/codemasterdev)
-Dave Toth [Github](https://github.com/DaveToth77)
-Diana Sossei [Github]()
+*[Matthew Pandolfo] [Github](https://github.com/PandolfoM)
+*[Xueting Hu(Ting)] [Github](https://github.com/ting-hu)
+*[Devon Webster] [Github](https://github.com/codemasterdev)
+*[Dave Toth] [Github](https://github.com/DaveToth77)
+*[Diana Sossei] [Github]()
 
 
 
