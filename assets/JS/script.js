@@ -188,3 +188,10 @@ function searchLoc() {
 $("#submit").click(function() {
   searchLoc();
 });
+$(document).ready(function () {
+    $("#swap-btn").click(function(){
+        let temp = $("#origin-input").val();        
+        $('#origin-input').val($("#destination-input").val());        
+        $('#destination-input').val(temp);        
+     });
+});
