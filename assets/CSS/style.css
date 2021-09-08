@@ -72,10 +72,6 @@ section {
 .choose-us-info {
   margin-top: -30px;
 }
-
-.choose-us-icon {
-  padding-left: 80px;
-}
 /* CHOOSE US STYLES */
 
 /* REVIEW STYLES START*/
@@ -88,7 +84,27 @@ section {
   padding-left: 10px;
   margin-top: -20px;
 }
+
+.card-content {
+  min-height: 200px;
+}
+
 /* REVIEW STYLES END */
-#weatherIcons {
-  display: flex;
+
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+@media screen and (max-width: 980px) {
+  .card-content {
+    min-height: 250px;
+  }
+}
+
+/* MEDIA QUERY FOR TABLETS AND SMALLER */
+@media screen and (max-width: 780px) {
+  #swap-btn {
+    padding-left: 10px;
+  }
+
+  .card-content {
+    min-height: 300px;
+  }
 }
