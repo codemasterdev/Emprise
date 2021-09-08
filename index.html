@@ -5,10 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/CSS/style.css" />
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/CSS/style.css" />
+    <link rel="stylesheet" href="./assets/CSS/materialize.css" />
+    <link rel="stylesheet" href="./assets/CSS/materialize.min.css" />
 </head>
 
 <body>
@@ -35,7 +37,7 @@
                 <form action="#">
                     <div class="col s2">
                         <label>
-                            <input aria-label="radio-button" name="group1" type="radio" checked />
+                            <input aria-label="radio-button" id="one-way" name="group1" type="radio" checked />
                             <span>One Way</span>
                         </label>
                     </div>
@@ -113,96 +115,91 @@
     <!-- WEATHER -->
     <h3 class="center">Five Day Weather</h3>
     <section class="container weather-container">
-        <div class="weather-results row">
-            <div class="col s2 weather-item">Day 1</div>
-            <div class="col s2 weather-item">Day 2</div>
-            <div class="col s2 weather-item">Day 3</div>
-            <div class="col s2 weather-item">Day 4</div>
-            <div class="col s2 weather-item">Day 5</div>
-        </div>
-    </section>
+      <div id="weatherResults" class="weather-results row">
+    </div>
 
     <!-- CHOOSE US -->
     <h3 class="center">Why Choose Us</h3>
     <section class="container choose-us">
-        <div class="row">
-            <div class="col s4 choose-us-info">
-                <i class="medium material-icons choose-us-icon">mood</i>
-                <h4>Satisfied Customer</h4>
-                <p>
-                    We've transported 100+ million happy customers worldwide. US
-                    customers give us an amazing 4.4 stars.
-                </p>
-            </div>
-            <div class="col s4 choose-us-info">
-                <i class="medium material-icons choose-us-icon">people</i>
-                <h4>Customer Service</h4>
-                <p>
-                    We provide top notch 24/7 customer service, have an issue ? Reach
-                    out to us.
-                </p>
-            </div>
-            <div class="col s4 choose-us-info">
-                <i class="medium material-icons choose-us-icon">sync</i>
-                <h4>Transparent</h4>
-                <p>
-                    We do our best to provide transparent, honest, and reasonable
-                    prices.
-                </p>
-            </div>
+      <div class="row">
+        <div class="col s4 choose-us-info">
+          <i class="medium material-icons choose-us-icon">mood</i>
+          <h5>Satisfied Customer</h5>
+          <p>
+            We've transported 100+ million happy customers worldwide. US
+            customers give us an amazing 4.4 stars.
+          </p>
         </div>
+        <div class="col s4 choose-us-info">
+          <i class="medium material-icons choose-us-icon">people</i>
+          <h5>Customer Service</h5>
+          <p>
+            We provide top notch 24/7 customer service, have an issue ? Reach
+            out to us.
+          </p>
+        </div>
+        <div class="col s4 choose-us-info">
+          <i class="medium material-icons choose-us-icon">sync</i>
+          <h5>Transparent</h5>
+          <p>
+            We do our best to provide transparent, honest, and reasonable
+            prices.
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- REVIEWS -->
     <h3 class="center">Reviews</h3>
     <section class="container reviews">
-        <div class="row review-card">
-            <div class="col s4 m11">
-                <div class="card medium">
-                    <div class="card-image">
-                        <img src="./assets/imgs/david.jpeg" alt="david" />
-                    </div>
-                    <div class="card-content">
-                        <h5>David</h5>
-                        <p>
-                            Had a wonderful experince booking my ticket, customer support
-                            was very helpful.
-                        </p>
-                    </div>
-                </div>
+      <div class="row review-card">
+        <div class="col">
+          <div class="card">
+            <div class="card-image">
+              <img src="./assets/imgs/david.jpeg" alt="david" />
             </div>
-        </div>
-        <div class="row review-card">
-            <div class="col s4 m11">
-                <div class="card medium">
-                    <div class="card-image">
-                        <img src="./assets/imgs/maria.jpeg" alt="maria" />
-                    </div>
-                    <div class="card-content">
-                        <h5>Maria</h5>
-                        <p>
-                            Michael was very helpful assisting me with purchasing my ticket.
-                        </p>
-                    </div>
-                </div>
+            <div class="card-content">
+              <h5>David</h5>
+              <p>
+                Had a wonderful experince booking my ticket, customer support
+                was very helpful.
+              </p>
             </div>
+          </div>
         </div>
-        <div class="row review-card">
-            <div class="col s4 m11">
-                <div class="card medium">
-                    <div class="card-image">
-                        <img src="./assets/imgs/steve.jpeg" alt="steve" />
-                    </div>
-                    <div class="card-content">
-                        <h5>Steve</h5>
-                        <p>
-                            Glad I came across Emprise, wouldnt want to book my tickets
-                            anywhere else !
-                        </p>
-                    </div>
-                </div>
+      </div>
+
+      <div class="row review-card">
+        <div class="col">
+          <div class="card">
+            <div class="card-image">
+              <img src="./assets/imgs/maria.jpeg" alt="maria" />
             </div>
+            <div class="card-content">
+              <h5>Maria</h5>
+              <p>
+                Michael was very helpful assisting me with purchasing my ticket.
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="row review-card">
+        <div class="col">
+          <div class="card">
+            <div class="card-image">
+              <img src="./assets/imgs/steve.jpeg" alt="steve" />
+            </div>
+            <div class="card-content">
+              <h5>Steve</h5>
+              <p>
+                Glad I came across Emprise, wouldnt want to book my tickets
+                anywhere else !
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- FOOTER START -->
