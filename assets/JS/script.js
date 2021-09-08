@@ -105,3 +105,10 @@ $(document).ready(function () {
         skyscannerAPI(end, start, endDate); //calling flight API for return flight from destination to origin.
     });
 });
+$(document).ready(function () {
+    $("#swap-btn").click(function(){
+        let temp = $("#origin-input").val();        
+        $('#origin-input').val($("#destination-input").val());        
+        $('#destination-input').val(temp);        
+     });
+});
