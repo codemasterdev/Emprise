@@ -1,48 +1,50 @@
 // for calender pop up
 $(document).ready(function () {
-    $(".datepicker").datepicker();
-    $("#flight-table").tablesorter({
-        sortList: [[3, 0]]
-    }); // allows the flights to be sorted by departure date.
+  $(".datepicker").datepicker();
+  $("#flight-table").tablesorter({
+    sortList: [
+      [3, 0]
+    ]
+  }); // allows the flights to be sorted by departure date.
 
 });
 
 //function to get user city input converted to API parameter format
 function skyscannerCity(cityCode) {
-    return fetch(
-        "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/?query=" +
-        cityCode, {
-            method: "GET",
-            headers: {
-                "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-                "x-rapidapi-key": "1bde5c88fbmshc3edab4f94f2feep1ada8ejsn18b27f31e980",
-            },
-        });
+  return fetch(
+    "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/?query=" +
+    cityCode, {
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+        "x-rapidapi-key": "1bde5c88fbmshc3edab4f94f2feep1ada8ejsn18b27f31e980",
+      },
+    });
 }
 
 function skyscannerAPI(from, to, date) {
-    console.log(to);
-    console.log(from);
-    let date1 = moment(date).format("YYYY-MM-DD");
-    let dateFormat = moment(date).format("MMM DD, YYYY");
+  console.log(to);
+  console.log(from);
+  let date1 = moment(date).format("YYYY-MM-DD");
+  let dateFormat = moment(date).format("MMM DD, YYYY");
 
-    fetch(
-            "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/" + from + "/" + to + "/" + date1, {
-                method: "GET",
-                headers: {
-                    "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-                    "x-rapidapi-key": "1bde5c88fbmshc3edab4f94f2feep1ada8ejsn18b27f31e980",
-                },
-            })
-            
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
+  fetch(
+      "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/" + from + "/" + to + "/" + date1, {
+        method: "GET",
+        headers: {
+          "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+          "x-rapidapi-key": "1bde5c88fbmshc3edab4f94f2feep1ada8ejsn18b27f31e980",
+        },
+      })
 
-            if (data.Quotes.length === 0) {
-                var row2 = `
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+
+      if (data.Quotes.length === 0) {
+        var row2 = `
             <tr>
             <td>${"No Flights Available From " + from + " To " + to}</td>
             <td></td>
@@ -51,14 +53,14 @@ function skyscannerAPI(from, to, date) {
             <td></td>
             </tr>
             `;
-                $(".flight").append(row2);
-            } else {
-                for (i = 0; i < data.Carriers.length; i++) {
-                    if (
-                        data.Quotes[0].OutboundLeg.CarrierIds[0] ==
-                        data.Carriers[i].CarrierId
-                    ) {
-                        var row2 = `
+        $(".flight").append(row2);
+      } else {
+        for (i = 0; i < data.Carriers.length; i++) {
+          if (
+            data.Quotes[0].OutboundLeg.CarrierIds[0] ==
+            data.Carriers[i].CarrierId
+          ) {
+            var row2 = `
                 <tr>
                 <td>${from}</td>
                 <td>${to}</td>
@@ -67,48 +69,48 @@ function skyscannerAPI(from, to, date) {
                 <td>${"$" + data.Quotes[0].MinPrice}</td>
                 </tr>
                 `;
-                        $(".flight").append(row2); //appends flight available to the table.
-                    }
-                }
-            }
-        })
-        .then(function () {
-            $("#flight-table").trigger("update"); // sort table by flight departure date
-        })
-        .catch((err) => {
-            console.error(err);
-        });
+            $(".flight").append(row2); //appends flight available to the table.
+          }
+        }
+      }
+    })
+    .then(function () {
+      $("#flight-table").trigger("update"); // sort table by flight departure date
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 }
 
 $(document).ready(function () {
-    $("#submit").on("click", async function () {
-        var destination = $("#destination-input").val().trim();
-        var origin = $("#origin-input").val().trim();
-        var startDate = $("#start-date").val().trim();
-        var endDate = $("#end-date").val().trim();
-        $(".flight").empty();
+  $("#submit").on("click", async function () {
+    var destination = $("#destination-input").val().trim();
+    var origin = $("#origin-input").val().trim();
+    var startDate = $("#start-date").val().trim();
+    var endDate = $("#end-date").val().trim();
+    $(".flight").empty();
 
-        let startResponse = await skyscannerCity(origin);
-        console.log(startResponse);
-        let data = await startResponse.json();
+    let startResponse = await skyscannerCity(origin);
+    console.log(startResponse);
+    let data = await startResponse.json();
 
-        console.log(data);
-        let start = data.Places[0].PlaceId;
-        console.log(start);
-        let endResponse = await skyscannerCity(destination);
-        console.log(endResponse);
-        let data2 = await endResponse.json();
-        let end = data2.Places[0].PlaceId;
-        console.log(data2);
+    console.log(data);
+    let start = data.Places[0].PlaceId;
+    console.log(start);
+    let endResponse = await skyscannerCity(destination);
+    console.log(endResponse);
+    let data2 = await endResponse.json();
+    let end = data2.Places[0].PlaceId;
+    console.log(data2);
 
-        await skyscannerAPI(start, end, startDate)
-         //calling flight API for orgin to destination flight.
-         if ($("#one-way").is(':checked')) {
+    await skyscannerAPI(start, end, startDate)
+    //calling flight API for orgin to destination flight.
+    if ($("#one-way").is(':checked')) {
 
-         } else{
-        skyscannerAPI(end, start, endDate); 
-         }//calling flight API for return flight from destination to origin.
-    });
+    } else {
+      skyscannerAPI(end, start, endDate);
+    } //calling flight API for return flight from destination to origin.
+  });
 });
 const apiKey = "de81cbd7917a62a289c2cd964e2ccb23";
 const weatherResults = document.querySelector('#weatherResults');
@@ -123,26 +125,28 @@ function getWeather(cityName) {
   fetch(apiUrl).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
-        // convert name to coords
-        var apiUrlAll =
-        "https://api.openweathermap.org/data/2.5/onecall?lat=" +
-        data.coord.lat +
-        "&lon=" +
-        data.coord.lon +
-        "&units=imperial&appid=" +
-        apiKey;
-      fetch(apiUrlAll).then(function (response) {
-        response.json().then(function (data) {
-          // display data
-          displayWeather(data);
+          // convert name to coords
+          var apiUrlAll =
+            "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+            data.coord.lat +
+            "&lon=" +
+            data.coord.lon +
+            "&units=imperial&appid=" +
+            apiKey;
+          fetch(apiUrlAll).then(function (response) {
+            response.json().then(function (data) {
+              // display data
+              displayWeather(data);
+            });
+          });
+        })
+        .catch(err => {
+          console.log(err);
         });
-      });
-    })
-    .catch(err => {
-      console.log(err);
-    });
     } else {
-      M.toast({html: 'Please enter a valid city'});
+      M.toast({
+        html: 'Please enter a valid city'
+      });
     }
   });
 }
@@ -152,7 +156,7 @@ function displayWeather(data) {
   $('#weatherResults').empty();
   for (let i = 0; i < 5; i++) {
     var date = new Date(data.daily[i].dt * 1000);
-    var month = date.getMonth() +1;
+    var month = date.getMonth() + 1;
     var day = date.getDate();
     var year = date.getFullYear();
     var fullDate = month + '/' + day + '/' + year;
@@ -170,7 +174,7 @@ function displayWeather(data) {
     displayTemp.textContent = 'Temp: ' + data.daily[i].temp.max + '°F';
     displayWind.textContent = 'Wind: ' + data.daily[i].wind_speed + ' MPH'
     displayHum.textContent = 'Humidity: ' + data.daily[i].humidity + '%'
-    
+
     // append elements
     weatherResults.appendChild(displayForecast);
     displayForecast.appendChild(displayIcon);
@@ -186,17 +190,50 @@ function searchLoc() {
   if (cityName) {
     getWeather(cityName)
   } else {
-    M.toast({html: 'Please enter a city'});
+    M.toast({
+      html: 'Please enter a city'
+    });
   }
 }
 
-$("#submit").click(function() {
+$("#submit").click(function () {
   searchLoc();
 });
+
+
 $(document).ready(function () {
-    $("#swap-btn").click(function(){
-        let temp = $("#origin-input").val();        
-        $('#origin-input').val($("#destination-input").val());        
-        $('#destination-input').val(temp);        
-     });
+  $("#swap-btn").click(function () {
+    let temp = $("#origin-input").val();
+    $('#origin-input').val($("#destination-input").val());
+    $('#destination-input').val(temp);
+  });
 });
+
+window.onload = function () {
+
+  // If localStorage is storing default values, exit the function and do not restore data
+  if (localStorage.getItem('origin') == "origin") {
+    return;
+  }
+
+  // If values are not blank, restore them to the fields
+  let origin = localStorage.getItem('origin');
+  if (origin !== null) $('#origin-input').val(origin);
+
+  let destination = localStorage.getItem('destination');
+  if (destination !== null) $('#destination-input').val(destination);
+
+  let startDate = localStorage.getItem('startDate');
+  if (startDate !== null) $('#start-date').val(startDate);
+
+  let endDate = localStorage.getItem('endDate');
+  if (endDate !== null) $('#end-date').val(endDate);
+}
+
+// Before refreshing the page, save the form data to localStorage
+window.onbeforeunload = function () {
+  localStorage.setItem("origin", $('#origin-input').val());
+  localStorage.setItem("destination", $('#destination-input').val());
+  localStorage.setItem("startDate", $('#start-date').val());
+  localStorage.setItem("endDate", $('#end-date').val());
+}
