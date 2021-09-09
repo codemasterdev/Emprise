@@ -44,11 +44,11 @@
           <form action="#">
             <div class="col s2">
               <label>
-                <input id="one-way"
+                <input
+                  id="one-way"
                   aria-label="radio-button"
                   name="group1"
                   type="radio"
-                  
                 />
                 <span>One Way</span>
               </label>
@@ -65,31 +65,61 @@
 
         <div class="row"></div>
         <div class="row">
-            <div class="input-field col s5">
-                <input type="text" id="origin-input" onfocus="this.value=''" class="autocomplete" required minlength="2"
-                    placeholder="Origin - US Cities Only" />
-            </div>
-            <div class="col s2" id="swap-btn">
-                <a class="waves-effect waves-light btn-large"><i class="small material-icons">swap_horiz</i></a>
-            </div>
-            <div class="input-field col s5">
-                <input type="text" onfocus="this.value=''" id="destination-input" class="autocomplete" required minlength="2"
-                    placeholder="Destination - US Cities Only" />
-            </div>
+          <div class="input-field col s5">
+            <input
+              type="text"
+              id="origin-input"
+              onfocus="this.value=''"
+              class="autocomplete"
+              required
+              minlength="2"
+              placeholder="Origin - US Cities Only"
+            />
+          </div>
+          <div class="col s2" id="swap-btn">
+            <a class="waves-effect waves-light btn-large"
+              ><i class="small material-icons">swap_horiz</i></a
+            >
+          </div>
+          <div class="input-field col s5">
+            <input
+              type="text"
+              onfocus="this.value=''"
+              id="destination-input"
+              class="autocomplete"
+              required
+              minlength="2"
+              placeholder="Destination - US Cities Only"
+            />
+          </div>
         </div>
 
         <!-- CALENDER DATES -->
         <div class="row">
-            <!-- ONE WAY-->
-            <div class="col s6 input-field">
-                <input aria-label="id" id="start-date" onfocus="this.value=''" type="text" class="datepicker" placeholder="Start date:" />
-                <label for="input_1">Start date:</label>
-            </div>
-            <!-- ROUND TRIP -->
-            <div class="col s6 input-field">
-                <input aria-label="id" id="end-date" onfocus="this.value=''" type="text" class="datepicker" placeholder="End date:"/>
-                <label for="input_1">End date:</label>
-            </div>
+          <!-- ONE WAY-->
+          <div class="col s6 input-field">
+            <input
+              aria-label="id"
+              id="start-date"
+              onfocus="this.value=''"
+              type="text"
+              class="datepicker"
+              placeholder="Start date:"
+            />
+            <label for="input_1">Start date:</label>
+          </div>
+          <!-- ROUND TRIP -->
+          <div class="col s6 input-field">
+            <input
+              aria-label="id"
+              id="end-date"
+              onfocus="this.value=''"
+              type="text"
+              class="datepicker"
+              placeholder="End date:"
+            />
+            <label for="input_1">End date:</label>
+          </div>
         </div>
 
         <!-- SEARCH BUTTON START-->
@@ -212,12 +242,13 @@
         </div>
       </div>
     </section>
-
+</br>
+</br>
     <!-- FOOTER START -->
     <footer class="page-footer">
       <div class="container">
         <div class="row">
-          <div class="col l6 s12">
+          <!-- <div class="col l6 s12">
             <h5 class="white-text">Footer</h5>
             <p class="grey-text text-lighten-4"></p>
           </div>
@@ -229,7 +260,7 @@
               <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
               <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
             </ul>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="footer-copyright">

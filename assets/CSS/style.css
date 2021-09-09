@@ -29,13 +29,11 @@ section {
 
 /* FLIGHT CONTAINER STYLES */
 .search-input {
-  border: 2px solid blue;
   margin-top: -50px;
   padding: 0.5em;
 }
 
 .search-results {
-  border: 2px solid blue;
   padding: 6.25em;
   margin-top: 1.5em;
 }
@@ -44,12 +42,11 @@ section {
 /* WEATHER CONTAINER STYLES */
 .weather-results {
   padding: 6.25em;
-  margin-top: -50px;
-  border: 2px solid blue;
+  margin-top: -100px;
+  margin-left: 90px;
 }
 
 .weather-item {
-  border: 1px solid red;
   margin: 0.5em;
 }
 /* WEATHER CONTAINER STYLES END */
@@ -66,7 +63,7 @@ section {
 
 /* CHOOSE US STYLES */
 .choose-us {
-  border: 1px solid red;
+  border: 3px solid #f5beb4;
 }
 
 .choose-us-info {
@@ -77,7 +74,7 @@ section {
 /* REVIEW STYLES START*/
 .reviews {
   display: flex;
-  border: 1px solid red;
+  border: 3px solid #f5beb4;
 }
 
 .review-card {
