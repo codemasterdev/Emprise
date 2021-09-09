@@ -1,10 +1,10 @@
 
 <!-- PROJECT LOGO -->
-<br />
+<!-- <br />
 <p align="center">
   <a href="http://github.com/DaveToth77/challenge-3">
     <img src="./assets/logo.png" alt="Logo" width="80" height="80">
-  </a>
+  </a> -->
 
   <h3 align="center">Emprise</h3>
 
@@ -49,8 +49,7 @@ Emprise is a browser based flight search app. When you select your origin, desti
 
 ### Screenshot
 
-
-
+![Alt text](./assets/imgs/empriseSS.png?raw=true "Optional Title")
 
 
 
