@@ -53,14 +53,14 @@
             <div class="row"></div>
             <div class="row">
                 <div class="input-field col s5">
-                    <input type="text" id="origin-input" class="autocomplete" required minlength="2"
+                    <input type="text" id="origin-input" onfocus="this.value=''" class="autocomplete" required minlength="2"
                         placeholder="Origin - US Cities Only" />
                 </div>
                 <div class="col s2" id="swap-btn">
                     <a class="waves-effect waves-light btn-large"><i class="small material-icons">swap_horiz</i></a>
                 </div>
                 <div class="input-field col s5">
-                    <input type="text" id="destination-input" class="autocomplete" required minlength="2"
+                    <input type="text" onfocus="this.value=''" id="destination-input" class="autocomplete" required minlength="2"
                         placeholder="Destination - US Cities Only" />
                 </div>
             </div>
@@ -69,12 +69,12 @@
             <div class="row">
                 <!-- ONE WAY-->
                 <div class="col s6 input-field">
-                    <input aria-label="id" id="start-date" type="text" class="datepicker" />
+                    <input aria-label="id" id="start-date" onfocus="this.value=''" type="text" class="datepicker" placeholder="Start date:" />
                     <label for="input_1">Start date:</label>
                 </div>
                 <!-- ROUND TRIP -->
                 <div class="col s6 input-field">
-                    <input aria-label="id" id="end-date" type="text" class="datepicker" />
+                    <input aria-label="id" id="end-date" onfocus="this.value=''" type="text" class="datepicker" placeholder="End date:"/>
                     <label for="input_1">End date:</label>
                 </div>
             </div>

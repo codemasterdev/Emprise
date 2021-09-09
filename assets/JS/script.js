@@ -113,6 +113,9 @@ $(document).ready(function () {
   });
 });
 
+$('#origin-input').click(function() {
+  $('#origin-input').textContent = "";
+})
 
 const apiKey = "de81cbd7917a62a289c2cd964e2ccb23";
 const weatherResults = document.querySelector('#weatherResults');
@@ -208,6 +211,10 @@ $(document).ready(function () {
     $('#destination-input').val(temp);
   });
 });
+
+// code to clear local storage user inputs on  click
+
+
 
 //  CODE TO SAVE USER SEARCH INPUTS
 
