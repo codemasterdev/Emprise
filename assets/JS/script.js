@@ -2,7 +2,9 @@
 $(document).ready(function () {
   $(".datepicker").datepicker();
   $("#flight-table").tablesorter({
-    sortList: [[3, 0]]
+    sortList: [
+      [3, 0]
+    ]
   }); // allows the flights to be sorted by departure date.
 
 });
@@ -12,12 +14,12 @@ function skyscannerCity(cityCode) {
   return fetch(
     "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/?query=" +
     cityCode, {
-    method: "GET",
-    headers: {
-      "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-      "x-rapidapi-key": "1bde5c88fbmshc3edab4f94f2feep1ada8ejsn18b27f31e980",
-    },
-  });
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+        "x-rapidapi-key": "1bde5c88fbmshc3edab4f94f2feep1ada8ejsn18b27f31e980",
+      },
+    });
 }
 
 function skyscannerAPI(from, to, date) {
@@ -27,13 +29,13 @@ function skyscannerAPI(from, to, date) {
   let dateFormat = moment(date).format("MMM DD, YYYY");
 
   fetch(
-    "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/" + from + "/" + to + "/" + date1, {
-    method: "GET",
-    headers: {
-      "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-      "x-rapidapi-key": "1bde5c88fbmshc3edab4f94f2feep1ada8ejsn18b27f31e980",
-    },
-  })
+      "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/" + from + "/" + to + "/" + date1, {
+        method: "GET",
+        headers: {
+          "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+          "x-rapidapi-key": "1bde5c88fbmshc3edab4f94f2feep1ada8ejsn18b27f31e980",
+        },
+      })
 
     .then(function (response) {
       return response.json();
@@ -107,9 +109,11 @@ $(document).ready(function () {
 
     } else {
       skyscannerAPI(end, start, endDate);
-    }//calling flight API for return flight from destination to origin.
+    } //calling flight API for return flight from destination to origin.
   });
 });
+
+
 const apiKey = "de81cbd7917a62a289c2cd964e2ccb23";
 const weatherResults = document.querySelector('#weatherResults');
 
@@ -123,26 +127,28 @@ function getWeather(cityName) {
   fetch(apiUrl).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
-        // convert name to coords
-        var apiUrlAll =
-          "https://api.openweathermap.org/data/2.5/onecall?lat=" +
-          data.coord.lat +
-          "&lon=" +
-          data.coord.lon +
-          "&units=imperial&appid=" +
-          apiKey;
-        fetch(apiUrlAll).then(function (response) {
-          response.json().then(function (data) {
-            // display data
-            displayWeather(data);
+          // convert name to coords
+          var apiUrlAll =
+            "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+            data.coord.lat +
+            "&lon=" +
+            data.coord.lon +
+            "&units=imperial&appid=" +
+            apiKey;
+          fetch(apiUrlAll).then(function (response) {
+            response.json().then(function (data) {
+              // display data
+              displayWeather(data);
+            });
           });
-        });
-      })
+        })
         .catch(err => {
           console.log(err);
         });
     } else {
-      M.toast({ html: 'Please enter a valid city' });
+      M.toast({
+        html: 'Please enter a valid city'
+      });
     }
   });
 }
@@ -186,7 +192,9 @@ function searchLoc() {
   if (cityName) {
     getWeather(cityName)
   } else {
-    M.toast({ html: 'Please enter a city' });
+    M.toast({
+      html: 'Please enter a city'
+    });
   }
 }
 
@@ -203,22 +211,53 @@ $(document).ready(function () {
 
 //  CODE TO SAVE USER SEARCH INPUTS
 
+window.onload = function () {
+
+  // If localStorage is storing default values (ex. name), exit the function and do not restore data
+  if (localStorage.getItem('origin') == "origin") {
+    return;
+  }
+
+  // If values are not blank, restore them to the fields
+  let origin = localStorage.getItem('origin');
+  if (origin !== null) $('#origin-input').val(origin);
+
+  let destination = localStorage.getItem('destination');
+  if (destination !== null) $('#destination-input').val(destination);
+
+  let startDate = localStorage.getItem('startDate');
+  if (startDate !== null) $('#start-date').val(startDate);
+
+  let endDate = localStorage.getItem('endDate');
+  if (endDate !== null) $('#end-date').val(endDate);
+}
+
+// Before refreshing the page, save the form data to localStorage
+window.onbeforeunload = function () {
+  localStorage.setItem("origin", $('#origin-input').val());
+  localStorage.setItem("destination", $('#destination-input').val());
+  localStorage.setItem("startDate", $('#start-date').val());
+  localStorage.setItem("endDate", $('#end-date').val());
+}
+
+
+
+
 // ARRAY FOR SEARCH RESULTS
-const searchResults = {
-  flightTo: 'Honston',
-  flightFrom: 'Jamaica',
-};
+// const searchResults = {
+//   flightTo: 'Honston',
+//   flightFrom: 'Jamaica',
+// };
 
 // // COVERT OBJECT/ARRAY TO A STRING
-const searchResults_serialized = JSON.stringify((searchResults));
+// const searchResults_serialized = JSON.stringify((searchResults));
 
 
-localStorage.setItem('searchResults', JSON.stringify(searchResults_serialized));
+// localStorage.setItem('searchResults', JSON.stringify(searchResults_serialized));
 
-const searchResults_deserialized = JSON.parse(localStorage.getItem('searchResults'));
+// const searchResults_deserialized = JSON.parse(localStorage.getItem('searchResults'));
 
-console.log(searchResults_deserialized);
-
+// console.log(searchResults_deserialized);
 
 // document.addEventListener('DOMContentLoaded', () => {
 //   document.getElementsByClassName('btn_Large').addEventListener('click', searchResults);
