@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
+    <link rel="stylesheet" href="./assets/CSS/materialize.css" />
+    <link rel="stylesheet" href="./assets/CSS/materialize.min.css" />
+    <link rel="stylesheet" href="./assets/CSS/style.css" />
+  </head>
+
+  <body>
+    <!-- NAV BAR-->
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">Emprise</a>
+      </div>
+    </nav>
+    <!-- NAV BAR END -->
+
+    <section class="hero">
+      <!-- <span class="hero-text">"Fly Freely"</span> -->
+    </section>
+
+    <!-- FLIGHT SEARCH -->
+    <h3 class="center">Flight Search</h3>
+    <section class="container flight-search-container">
+      <div class="search-input">
+        <div class="row"></div>
+
+        <!-- TRIP OPTIONS -->
+        <div class="row">
+          <form action="#">
+            <div class="col s2">
+              <label>
+                <input
+                  id="one-way"
+                  aria-label="radio-button"
+                  name="group1"
+                  type="radio"
+                />
+                <span>One Way</span>
+              </label>
+            </div>
+
+            <div class="col s2">
+              <label>
+                <input aria-label="radio-button" name="group1" type="radio" />
+                <span>Round Trip</span>
+              </label>
+            </div>
+          </form>
+        </div>
+
+        <div class="row"></div>
+        <div class="row">
+          <div class="input-field col s5">
+            <input
+              type="text"
+              id="origin-input"
+              onfocus="this.value=''"
+              class="autocomplete"
+              required
+              minlength="2"
+              placeholder="Origin - US Cities Only"
+            />
+          </div>
+          <div class="col s2" id="swap-btn">
+            <a class="waves-effect waves-light btn-large"
+              ><i class="small material-icons">swap_horiz</i></a
+            >
+          </div>
+          <div class="input-field col s5">
+            <input
+              type="text"
+              onfocus="this.value=''"
+              id="destination-input"
+              class="autocomplete"
+              required
+              minlength="2"
+              placeholder="Destination - US Cities Only"
+            />
+          </div>
+        </div>
+
+        <!-- CALENDER DATES -->
+        <div class="row">
+          <!-- ONE WAY-->
+          <div class="col s6 input-field">
+            <input
+              aria-label="id"
+              id="start-date"
+              onfocus="this.value=''"
+              type="text"
+              class="datepicker"
+              placeholder="Start date:"
+            />
+            <label for="input_1">Start date:</label>
+          </div>
+          <!-- ROUND TRIP -->
+          <div class="col s6 input-field">
+            <input
+              aria-label="id"
+              id="end-date"
+              onfocus="this.value=''"
+              type="text"
+              class="datepicker"
+              placeholder="End date:"
+            />
+            <label for="input_1">End date:</label>
+          </div>
+        </div>
+
+        <!-- SEARCH BUTTON START-->
+        <div class="row">
+          <div class="col s5"></div>
+          <div class="col s2">
+            <a id="submit" class="waves-effect waves-light btn-large">Search</a>
+          </div>
+          <div class="col s5"></div>
+        </div>
+      </div>
+
+      <!-- FLIGHT SEARCH RESULTS -->
+      <div class="row">
+        <h3 class="center">Flights</h3>
+        <div class="col s12 z-depth-2">
+          <table class="highlight responsive-table" id="flight-table">
+            <thead>
+              <tr class="eventHeading">
+                <td>From</td>
+                <td>To</td>
+                <td>Company</td>
+                <td>Departure Date</td>
+                <td>Price ($)</td>
+              </tr>
+            </thead>
+
+            <tbody class="flight"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEATHER -->
+    <h3 class="center">Five Day Weather</h3>
+    <section class="container weather-container">
+      <div id="weatherResults" class="weather-results row"></div>
+    </section>
+
+    <!-- CHOOSE US -->
+    <h3 class="center">Why Choose Us</h3>
+    <section class="container choose-us">
+      <div class="row">
+        <div class="col s4 choose-us-info">
+          <i class="medium material-icons choose-us-icon">mood</i>
+          <h5>Satisfied Customer</h5>
+          <p>
+            We've transported 100+ million happy customers worldwide. US
+            customers give us an amazing 4.4 stars.
+          </p>
+        </div>
+        <div class="col s4 choose-us-info">
+          <i class="medium material-icons choose-us-icon">people</i>
+          <h5>Customer Service</h5>
+          <p>
+            We provide top notch 24/7 customer service, have an issue ? Reach
+            out to us.
+          </p>
+        </div>
+        <div class="col s4 choose-us-info">
+          <i class="medium material-icons choose-us-icon">sync</i>
+          <h5>Transparent</h5>
+          <p>
+            We do our best to provide transparent, honest, and reasonable
+            prices.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <h3 class="center">Reviews</h3>
+    <section class="container reviews">
+      <div class="row review-card">
+        <div class="col">
+          <div class="card">
+            <div class="card-image">
+              <img src="./assets/imgs/david.jpeg" alt="david" />
+            </div>
+            <div class="card-content">
+              <h5>David</h5>
+              <p>
+                Had a wonderful experience booking my ticket, customer support
+                was very helpful.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row review-card">
+        <div class="col">
+          <div class="card">
+            <div class="card-image">
+              <img src="./assets/imgs/maria.jpeg" alt="maria" />
+            </div>
+            <div class="card-content">
+              <h5>Maria</h5>
+              <p>
+                Michael was very helpful assisting me with purchasing my ticket.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row review-card">
+        <div class="col">
+          <div class="card">
+            <div class="card-image">
+              <img src="./assets/imgs/steve.jpeg" alt="steve" />
+            </div>
+            <div class="card-content">
+              <h5>Steve</h5>
+              <p>
+                Glad I came across Emprise, wouldnt want to book my tickets
+                anywhere else !
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</br>
+</br>
+    <!-- FOOTER START -->
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <!-- <div class="col l6 s12">
+            <h5 class="white-text">Footer</h5>
+            <p class="grey-text text-lighten-4"></p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+            </ul>
+          </div> -->
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">© 2021 Emprise, Inc</div>
+      </div>
+    </footer>
+
+    <!-- FOOTER END -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.1/js/jquery.tablesorter.min.js"
+      integrity="sha256-uC1JMW5e1U5D28+mXFxzTz4SSMCywqhxQIodqLECnfU="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/JS/script.js"></script>
+  </body>
+</html>
