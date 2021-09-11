@@ -117,7 +117,7 @@ const weatherResults = document.querySelector('#weatherResults');
 
 function getWeather(cityName) {
   var apiUrl =
-    "http://api.openweathermap.org/data/2.5/weather?q=" +
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
     cityName +
     "&units=imperial" +
     "&appid=" +
